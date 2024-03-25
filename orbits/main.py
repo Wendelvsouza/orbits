@@ -12,6 +12,10 @@ if __name__ == "__main__":
 
     orbits_runge_kutta_method = Orbits_runge_kutta_method()
 
-    orbits.apply_euler_method(orbits_euler_method.methods)
+    methods_dict = {
+        "euler": orbits_euler_method.methods,
+        "runge_kutta": orbits_runge_kutta_method.methods,
+    }
 
-    orbits.apply_runge_kutta_method(orbits_runge_kutta_method.methods)
+    for name in ["euler", "runge_kutta"]:
+        orbits.apply_method(name, methods_dict[name])
