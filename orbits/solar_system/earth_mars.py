@@ -8,10 +8,10 @@ class Orbits:
         with open("settings.json") as json_file:
             variables = json.load(json_file)
 
-        self.const = variables["const"]
         self.step = variables["step"]
         self.earth = variables["earth"]
         self.mars = variables["mars"]
+        self.const = variables["const"]
 
     def apply_method(
         self,
