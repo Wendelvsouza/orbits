@@ -30,18 +30,16 @@ class shortcut:
         acceleration_by,
         step,
     ):
-        earth["velocity_x_earth"] += acceleration_ax * step / 2
-        earth["velocity_y_earth"] += acceleration_ay * step / 2
+        earth["velocity_x_earth"] = earth["velocity_x_earth"] + acceleration_ax * step
+        earth["velocity_y_earth"] = earth["velocity_y_earth"] + acceleration_ay * step
 
-        mars["velocity_x_mars"] += acceleration_bx * step / 2
-        mars["velocity_y_mars"] += acceleration_by * step / 2
-        earth["x_earth"] += earth["velocity_x_earth"] * step / 2
-        earth["y_earth"] += earth["velocity_y_earth"] * step / 2
+        mars["velocity_x_mars"] = mars["velocity_x_mars"] + acceleration_bx * step
+        mars["velocity_y_mars"] = mars["velocity_y_mars"] + acceleration_by * step
+        earth["x_earth"] = earth["x_earth"] + earth["velocity_x_earth"] * step
+        earth["y_earth"] = earth["y_earth"] + earth["velocity_y_earth"] * step
 
-        mars["x_mars"] += mars["velocity_x_mars"] * step / 2
-        mars["y_mars"] += mars["velocity_y_mars"] * step / 2
-
-        print(acceleration_ax)
+        mars["x_mars"] = mars["x_mars"] + mars["velocity_x_mars"] * step
+        mars["y_mars"] = mars["y_mars"] + mars["velocity_y_mars"] * step
 
     def update_velocity_position_2(
         self,
@@ -85,8 +83,7 @@ class Orbits_euler_method(MethodsInterface):
 
     def methods(self, const, step, mars, earth) -> tuple:
         shortcut_instance = shortcut()
-        # 19000
-        for _ in range(10):
+        for _ in range(19000):
 
             shortcut_instance.save_positions(earth, mars)
 
@@ -142,7 +139,6 @@ class Orbits_euler_method(MethodsInterface):
                 acceleration_by,
                 step["dt_euler"],
             )
-        # print(shortcut_instance.save_positions(earth, mars))
 
         return shortcut_instance.save_positions(earth, mars)
 
@@ -151,8 +147,9 @@ class Orbits_runge_kutta_method(MethodsInterface):
 
     def methods(self, const, step, mars, earth) -> tuple:
         shortcut_instance = shortcut()
-        # 358000
-        for _ in range(5):
+
+        for _ in range(358000):
+
             shortcut_instance.save_positions(earth, mars)
 
             div_a = shortcut_instance.div_calculator(earth["x_earth"], earth["y_earth"])
@@ -205,7 +202,7 @@ class Orbits_runge_kutta_method(MethodsInterface):
                 acceleration_ay,
                 acceleration_bx,
                 acceleration_by,
-                step["dt_runge_kutta"],
+                step["dt_runge_kutta"] / 2,
             )
 
             div_a = shortcut_instance.div_calculator(earth["x_earth"], earth["y_earth"])
@@ -260,5 +257,5 @@ class Orbits_runge_kutta_method(MethodsInterface):
                 acceleration_by,
                 step["dt_runge_kutta"],
             )
-        # print(shortcut_instance.save_positions(earth, mars))
+
         return shortcut_instance.save_positions(earth, mars)
