@@ -2,11 +2,31 @@
     "const": {
         "GM": 9.96e-07
     },
-    "step": {
-        "dt_euler": 0.1,
+    "step_euler": {
+        "dt_euler": 0.1
+    },
+    "earth_euler": {
+        "x_earth": 0.1521,
+        "y_earth": 0,
+        "velocity_x_earth": 0,
+        "velocity_y_earth": 0.00253,
+        "Gm_a": 2.975e-12,
+        "position_earth_x": [],
+        "position_earth_y": []
+    },
+    "mars_euler": {
+        "x_mars": 0.24921,
+        "y_mars": 0,
+        "velocity_x_mars": 0,
+        "velocity_y_mars": 0.00208,
+        "Gm_b": 3.197e-14,
+        "position_mars_x": [],
+        "position_mars_y": []
+    },
+    "step_runge": {
         "dt_runge_kutta": 0.01
     },
-    "earth": {
+    "earth_runge": {
         "x_earth": 0.1521,
         "y_earth": 0,
         "velocity_x_earth": 0,
@@ -14,10 +34,12 @@
         "Gm_a": 2.975e-12,
         "position_earth_x": [],
         "position_earth_y": [],
-        "new_position_earth_x": [],
-        "new_position_earth_y": []
+        "x_earth0": 0.1521,
+        "y_earth0": 0,
+        "velocity_x_earth0": 0,
+        "velocity_y_earth0": 0.00253
     },
-    "mars": {
+    "mars_runge": {
         "x_mars": 0.24921,
         "y_mars": 0,
         "velocity_x_mars": 0,
@@ -25,7 +47,9 @@
         "Gm_b": 3.197e-14,
         "position_mars_x": [],
         "position_mars_y": [],
-        "new_position_mars_x": [],
-        "new_position_mars_y": []
+        "x_mars0": 0.24921,
+        "y_mars0": 0,
+        "velocity_x_mars0": 0,
+        "velocity_y_mars0": 0.00208
     }
 }

@@ -1,6 +1,6 @@
 from methods_solution.euler_runge_kutta import (
-    Orbits_euler_method,
-    Orbits_runge_kutta_method,
+    OrbitsEulerMethod,
+    OrbitsRungeKuttaMethod,
 )
 from solar_system.earth_mars import Orbits
 
@@ -8,13 +8,13 @@ if __name__ == "__main__":
 
     orbits = Orbits()
 
-    orbits_euler_method = Orbits_euler_method()
+    OrbitsEulerMethod = OrbitsEulerMethod()
 
-    orbits_runge_kutta_method = Orbits_runge_kutta_method()
+    OrbitsRungeKuttaMethod = OrbitsRungeKuttaMethod()
 
     methods_dict = {
-        "euler": orbits_euler_method.methods,
-        "runge_kutta": orbits_runge_kutta_method.methods,
+        "euler": OrbitsEulerMethod.methods,
+        "runge_kutta": OrbitsRungeKuttaMethod.methods,
     }
 
     for name in ["euler", "runge_kutta"]:
