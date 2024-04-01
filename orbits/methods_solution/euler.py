@@ -4,6 +4,19 @@ from methods_solution.shortcut_methods import Shortcut
 
 
 class OrbitsEulerMethod(MethodsInterface):
+    """
+    This class apply the Euler method.
+
+    Methods:
+    call(self,
+        const: Dict[str, float],
+        step: Dict[str, float]
+        mars: Dict[str, Union[float, list]],
+        earth: Dict[str, Union[float, list]]):
+            Calculates the positions of the Earth and Mars using
+            mathematical methods, and returns a list of the X and Y
+            coordinates for each planet.
+    """
 
     def call(
         self,
@@ -12,8 +25,26 @@ class OrbitsEulerMethod(MethodsInterface):
         mars: Dict[str, Union[float, list]],
         earth: Dict[str, Union[float, list]],
     ) -> Tuple[float]:
-        shortcut = Shortcut()
+        """
+        Parameters:
+        const: Dict[str, float]
+            A dictionary with the gravitational constant
+            times the sun's mass - GM.
+        step: Dict[str, float]
+            A dict with time step.
+        mars: Dict[str, Union[float, list]]
+            A dict with the initial positions, velocities, and an
+            empty list to save the new positions and velocities of
+            Mars.
+        earth: Dict[str, Union[float, list]]
+            A dict with the initial positions, velocities, and an
+            empty list to save the new positions and velocities of
+            Earth.
 
+        Returns:
+            Return the x and y axis positions of both Earth and Mars.
+        """
+        shortcut = Shortcut()
         for _ in range(9000):
 
             shortcut.save_position_list(earth=earth, mars=mars)

@@ -6,8 +6,46 @@ import json
 
 class Orbits:
     def __init__(self) -> None:
+        """
+        This is the constructor for the Orbits class.
 
-        with open("settings.json") as json_file:
+
+        The attributes are filled in from a settings.json file which includes:
+
+        Atributes:
+        const: (Dict[str, float])
+            A dictionary with the gravitational constant
+            times the sun's mass - GM.
+
+        step_euler: (Dict[str, float])
+            A dictionary with the time step for
+            the Euler method.
+
+        earth_euler: (Dict[str, Union[float, list]])
+            A dictionary with the initial positions, velocities, and an
+            empty list to save the new positions and velocities of
+            Mars for the Euler method.
+
+        mars_euler: (Dict[str, Union[float, list]])
+            dict with initiate positions, velocity and empty list to
+            save new position and velocity to the mars planet to the
+            method euler.
+
+
+        step_runge: (Dict[str, float])
+            A dictionary with the time step for the Runge-Kutta method.
+
+        earth_runge: (Dict[str, Union[float, list]])
+            A dictionary with initial positions, velocities, and an
+            empty list to save the new positions and velocities of the
+            Earth for the Runge-Kutta method.
+
+        mars_runge: (Dict[str, Union[float, list]])
+            A dictionary with initial positions, velocities, and an
+            empty list to save the new positions and velocities of
+            Mars for the Runge-Kutta method.
+        """
+        with open("files/settings.json") as json_file:
             variables: Dict[str, Union[float, list]] = json.load(json_file)
 
         self.const: Dict[str, float] = variables["const"]
@@ -23,8 +61,34 @@ class Orbits:
     def apply_method(
         self,
         name: str,
-        method_apply: dict,
+        method_apply: Dict[str, callable],
     ) -> None:
+        """
+        Apply the methods accordingly with the received parameters and return
+        lists that are used to call the graph_force method to generate the
+        graphic related to the method."
+
+        Parameters:
+
+        name: (str)
+                    Name of the orbit solution method to be applied.
+                    'euler' or 'runge_kutta' is expected.
+        method_apply: (Dict[str,str])
+                    Dictionary that maps method names to corresponding class
+                    instance methods.
+
+        Atributes:
+
+        earth_x: (List[float])
+                    List of x coordinates for Earth returned by the method.
+        earth_y: (List[float])
+                    List of y coordinates for Earth returned by the method.
+        mars_x: (List[float])
+                    List of x coordinates for Mars returned by the method.
+        mars_y: (List[float])
+                    List of y coordinates  for Mars returned by the method.
+        """
+
         earth_x: List[float]
         earth_y: List[float]
         mars_x: List[float]

@@ -17,4 +17,6 @@ if __name__ == "__main__":
     }
 
     for name in ["euler", "runge_kutta"]:
-        orbits.apply_method(name, methods_dict[name])
+        orbits.apply_method(
+            name, methods_dict[name]
+        )  # Loop to apply Euler's method and the RK method
