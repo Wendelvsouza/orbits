@@ -14,7 +14,10 @@ class MethodsInterface(ABC):
         """
         Abstract method to be implemented by subclasses.
 
-        Parameters:
+        '''
+
+        Parameters
+        ----------
         const: (Dict[str, float])
                 A dictionary containing parameters to be considered as
                 constants.
@@ -33,8 +36,10 @@ class MethodsInterface(ABC):
                 represented as key-value pairs. The values can either be
                 floats or lists.
 
-        Returns:
-                    This function returns a list of float.
+        Returns
+        -------
+        List[float]
+                This function returns a list of float.
         """
 
         raise NotImplementedError("Subclasses must implement this abstract method")

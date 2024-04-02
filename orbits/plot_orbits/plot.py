@@ -5,17 +5,19 @@ class Plot:
     """
     This class creates a plot using the received parameters.
 
+    '''
 
-    Parameters:
-    name: (str)
+    Parameters
+    ----------
+    name : str
         The name of the method used (either Euler or Runge-Kutta).
-    earth_x: (list)
+    earth_x : list
         A list containing the positions of Earth on the X-axis.
-    earth_y: (list)
+    earth_y : list
         A list containing the positions of Earth on the Y-axis.
-    mars_x: (list)
+    mars_x : list
         A list containing the positions of Mars on the X-axis.
-    mars_y: (list)
+    mars_y : list
         A list containing the positions of Mars on the Y-axis.
     """
 
