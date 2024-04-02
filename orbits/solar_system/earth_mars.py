@@ -45,7 +45,7 @@ class Orbits:
             empty list to save the new positions and velocities of
             Mars for the Runge-Kutta method.
         """
-        with open("files/settings.json") as json_file:
+        with open("orbits/settings.json") as json_file:
             variables: Dict[str, Union[float, list]] = json.load(json_file)
 
         self.const: Dict[str, float] = variables["const"]
