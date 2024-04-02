@@ -7,7 +7,8 @@ class OrbitsEulerMethod(MethodsInterface):
     """
     This class apply the Euler method.
 
-    Methods:
+    Methods
+    -------
     call(self,
         const: Dict[str, float],
         step: Dict[str, float]
@@ -26,7 +27,8 @@ class OrbitsEulerMethod(MethodsInterface):
         earth: Dict[str, Union[float, list]],
     ) -> Tuple[float]:
         """
-        Parameters:
+        Parameters
+        ----------
         const: Dict[str, float]
             A dictionary with the gravitational constant
             times the sun's mass - GM.
@@ -41,7 +43,9 @@ class OrbitsEulerMethod(MethodsInterface):
             empty list to save the new positions and velocities of
             Earth.
 
-        Returns:
+        Returns
+        -------
+        Tuple[float]
             Return the x and y axis positions of both Earth and Mars.
         """
         shortcut = Shortcut()

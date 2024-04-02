@@ -68,25 +68,27 @@ class Orbits:
         lists that are used to call the graph_force method to generate the
         graphic related to the method."
 
-        Parameters:
+        '''
 
-        name: (str)
-                    Name of the orbit solution method to be applied.
-                    'euler' or 'runge_kutta' is expected.
-        method_apply: (Dict[str,str])
-                    Dictionary that maps method names to corresponding class
-                    instance methods.
+        Parameters
+        ----------
+        name: str
+            Name of the orbit solution method to be applied.
+            'euler' or 'runge_kutta' is expected.
+        method_apply: Dict[str,str]
+            Dictionary that maps method names to corresponding class
+            instance methods.
 
-        Atributes:
-
-        earth_x: (List[float])
-                    List of x coordinates for Earth returned by the method.
-        earth_y: (List[float])
-                    List of y coordinates for Earth returned by the method.
-        mars_x: (List[float])
-                    List of x coordinates for Mars returned by the method.
-        mars_y: (List[float])
-                    List of y coordinates  for Mars returned by the method.
+        Atributes
+        ---------
+        earth_x : (List[float])
+            List of x coordinates for Earth returned by the method.
+        earth_y : (List[float])
+            List of y coordinates for Earth returned by the method.
+        mars_x : (List[float])
+            List of x coordinates for Mars returned by the method.
+        mars_y : (List[float])
+            List of y coordinates  for Mars returned by the method.
         """
 
         earth_x: List[float]
